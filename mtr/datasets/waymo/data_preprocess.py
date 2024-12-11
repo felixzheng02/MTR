@@ -173,7 +173,7 @@ def process_waymo_data_with_scenario_proto(data_file, output_path=None):
     for cnt, data in enumerate(dataset):
         info = {}
         scenario = scenario_pb2.Scenario()
-        scenario.ParseFromString(bytearray(data.numpy()))
+        scenario.ParseFromString(data.numpy())
 
         info['scenario_id'] = scenario.scenario_id
         info['timestamps_seconds'] = list(scenario.timestamps_seconds)  # list of int of shape (91)
